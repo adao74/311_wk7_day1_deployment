@@ -1,4 +1,5 @@
 const mysql = require('mysql2')
+require('dotenv').config()
 
 class Connection {
   constructor() {
@@ -7,10 +8,10 @@ class Connection {
 
       const config = {
         connectionLimit: 100,
-        host: 'localhost',
-        user: 'root',
-        password: 'password',
-        database: 'admin'
+        host: process.env.HOST,
+        user: process.env.USER,
+        password: process.env.PASSWORD,
+        database: process.env.DATABASE
       }
 
       if (process.env.NODE_ENV === 'production' && process.env.CLOUD_INSTANCE) {
