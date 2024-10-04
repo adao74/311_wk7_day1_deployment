@@ -79,9 +79,10 @@ _THESE ARE THE MAIN DEPLOYMENT STEPS_
 
 => git clone this repository, cd into it
 => npm install
+=> Note: Default operating system in Google Cloud Shell Editor is linux, not windows, so remove `win-node-env` from package.json
 
 Do in Google Cloud Shell editor so don't push to github:
-* Make sure that an `app.yaml` file exists that has at least one line, the runtime (ex. `runtime: nodejs10`). This file has already been created for us in this repo. Please go look at it.
+* Make sure that an `app.yaml` file exists that has at least one line, the runtime (ex. `runtime: nodejs20`). This file has already been created for us in this repo. Please go look at it.
 * Add an `environment_variables` section to your `app.yaml` file
 * Find the _instance name_ of your Cloud SQL
   * Navigate to the "Cloud SQL" page in Google Cloud
