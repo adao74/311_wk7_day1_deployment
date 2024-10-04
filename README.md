@@ -62,6 +62,8 @@ _This is a one-time setup step_
 * This should open a browser and allow you to login with your Google Cloud credentials
 * Once logged in, pick your project (ex. `new-project-245019`).. should be option 1
 
+// Go to IAM and give the "App Engine default service account" the roles: App Engine Deployer, Cloud SQL Client
+
 ### Enable the Cloud SQL Admin API
 _This is a one-time setup step_
 _Only applicable if we are using a Google Cloud database, which we are_
@@ -83,11 +85,12 @@ _THESE ARE THE MAIN DEPLOYMENT STEPS_
 
 Do in Google Cloud Shell editor so don't push to github:
 * Make sure that an `app.yaml` file exists that has at least one line, the runtime (ex. `runtime: nodejs20`). This file has already been created for us in this repo. Please go look at it.
-* Add an `environment_variables` section to your `app.yaml` file
+* Add an `environment_variables` section to your `app.yaml` file => App engine uses this file instead of the `.env` file we used for localhost server
 * Find the _instance name_ of your Cloud SQL
   * Navigate to the "Cloud SQL" page in Google Cloud
   * Find "instance connection name" under the "connect to this instance" title
-* Add a property for this variable and give it the name "CLOUD INSTANCE": `CLOUD_INSTANCE: <YOUR CLOUD INSTANCE NAME>`
+  * Add a property for this variable and give it the name "CLOUD INSTANCE": `CLOUD_INSTANCE: <YOUR CLOUD INSTANCE NAME>`
+* Also need `USER`, `PASSWORD`, and `DATABASE` env variables
 
 Then:
 * Run the command: `gcloud app deploy`

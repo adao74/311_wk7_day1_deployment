@@ -1,4 +1,7 @@
 runtime: nodejs20
 
-env_variables:
-  CLOUD_INSTANCE: fake-instance
+env_variables: 
+  CLOUD_INSTANCE: fake-sql-instance 
+  USER: fake-user
+  PASSWORD: fake-password
+  DATABASE: fake-database
