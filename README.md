@@ -75,13 +75,20 @@ _Only applicable if we are using a Google Cloud database, which we are_
 _This is a RE-OCCURING step. You will do this each time you want to deploy a project_
 _THESE ARE THE MAIN DEPLOYMENT STEPS_
 
-* In your terminal, navigate to a repo that you want to deploy (we will use this repo)
+* In your terminal, navigate to a repo that you want to deploy (we will use this repo) 
+
+=> git clone this repository, cd into it
+=> npm install
+
+Do in Google Cloud Shell editor so don't push to github:
 * Make sure that an `app.yaml` file exists that has at least one line, the runtime (ex. `runtime: nodejs10`). This file has already been created for us in this repo. Please go look at it.
 * Add an `environment_variables` section to your `app.yaml` file
 * Find the _instance name_ of your Cloud SQL
   * Navigate to the "Cloud SQL" page in Google Cloud
   * Find "instance connection name" under the "connect to this instance" title
 * Add a property for this variable and give it the name "CLOUD INSTANCE": `CLOUD_INSTANCE: <YOUR CLOUD INSTANCE NAME>`
+
+Then:
 * Run the command: `gcloud app deploy`
 * Once deployed, App Engine will use the standard `npm start` command to run your application. Go look at it in the `package.json` file and make sure you know what it's doing
 * After a couple of minutes, your app should appear in the online console
